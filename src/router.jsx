@@ -9,6 +9,6 @@ const Router = () => {
             <Route path="/login" element={<Login />} />
         </Routes>
     )
-}
+} 
 
 export default Router
