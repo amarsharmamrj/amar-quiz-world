@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +8,224 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* ++++++++++++++++++++++++++++ COLORS ++++++++++++++++++++++ */
+.color-one {
+  color: #9915e9 !important;
+}
+
+.bg-one {
+  background-color: #9915e9 !important;
+}
+
+.color-two {
+  color: #AA96DA !important;
+}
+
+.bg-two {
+  background-color: #AA96DA !important;
+}
+
+
+.color-three {
+  color: #14A76C !important;
+}
+
+.bg-three {
+  background-color: #14A76C !important;
+}
+
+
+.color-three {
+  color: #5680E9 !important;
+}
+
+.bg-three {
+  background-color: #5680E9 !important;
+}
+
+.color-four {
+  color: #FF69B4 !important;
+}
+
+.bg-four {
+  background-color: #FF69B4 !important;
+}
+
+/* ++++++++++++++++++++++++++++ MARGIN ++++++++++++++++++++++ */
+.ml-one {
+  margin-left: 0.5rem !important;
+}
+
+.mr-one {
+  margin-right: 0.5rem !important;
+}
+
+.mt-one {
+  margin-top: 0.5rem !important;
+}
+
+.mb-one {
+  margin-bottom: 0.5rem !important;
+}
+
+.ml-two {
+  margin-left: 1rem !important;
+}
+
+.mr-two {
+  margin-right: 1rem !important;
+}
+
+.mt-two {
+  margin-top: 1rem !important;
+}
+
+.mb-two {
+  margin-bottom: 1rem !important;
+}
+
+.mlr-one {
+  margin-left: 0.5rem !important;
+  margin-right: 0.5rem !important;
+}
+
+.mlr-two {
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+}
+
+.mtb-one {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.mtb-two {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.m-one {
+  margin: 0.5rem !important;
+}
+
+.m-two {
+  margin: 1rem !important;
+}
+
+/* ++++++++++++++++++++++++++++ PADDING ++++++++++++++++++++++ */
+.pl-one {
+  padding-left: 0.5rem !important;
+}
+
+.pr-one {
+  padding-right: 0.5rem !important;
+}
+
+.pt-one {
+  padding-top: 0.5rem !important;
+}
+
+.pb-one {
+  padding-bottom: 0.5rem !important;
+}
+
+.pl-two {
+  padding-left: 1rem !important;
+}
+
+.pr-two {
+  padding-right: 1rem !important;
+}
+
+.pt-two {
+  padding-top: 1rem !important;
+}
+
+.pb-two {
+  padding-bottom: 1rem !important;
+}
+
+.plr-one {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+
+.plr-two {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+.ptb-one {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.ptb-two {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.p-one {
+  padding: 0.5rem !important;
+}
+
+.p-two {
+  padding: 1rem !important;
+}
+
+
+
+/* #############################################################################################
+                                H O M E P A G E
+  ##############################################################################################*/
+
+.homepage {
+  display: flex;
+  justify-content: center;
+}
+
+.category-card {
+  background-color: #14A76C;
+  margin: 0.5rem 0.5rem 3rem 0.5rem;
+  border-radius: 1rem;
+  padding: 6rem 0.8rem 0.8rem 0.8rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.category-card h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.category-card img {
+  position: absolute;
+  height: 7rem;
+  right: 0.5rem;
+  top: -2rem;
+}
+
+.category-card:hover img {
+  transform: translate(-20px);
+  transition: all 0.4s ease-in;
+}
+
+/* #############################################################################################
+                                Q U I Z 
+  ##############################################################################################*/
+
+.quiz {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.quiz-container {
+  color: white;
+}
+
+.quiz-image {
+  height: 7rem;
 }
