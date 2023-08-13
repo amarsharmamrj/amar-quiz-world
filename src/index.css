@@ -229,3 +229,47 @@ code {
 .quiz-image {
   height: 7rem;
 }
+
+.quiz-topbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.quiz-question h6 {
+  margin-bottom: 0;
+}
+
+.quiz-question h2 {
+  margin-top: 0.4rem;
+}
+
+.quiz-question p {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.4rem;
+  color: #9915e9;
+  width: 50%;
+  margin: 0.7rem 0;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.quiz-question p:hover{
+  background-color: #9915e9;
+  color: white;
+  transition: all 0.4s ease-in;
+}
+
+/* #######################################################################################################
+                                  SMALL DEVICE
+  ######################################################################################################## */
+
+@media screen and (max-width: 576px) {
+  .quiz-question p {
+    width: 90%;
+  }
+
+}
