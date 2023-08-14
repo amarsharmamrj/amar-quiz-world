@@ -228,6 +228,7 @@ code {
 
 .quiz-image {
   height: 7rem;
+  padding: 1.5rem 0 1rem 0;
 }
 
 .quiz-topbar {
@@ -261,6 +262,9 @@ code {
   background-color: #9915e9;
   color: white;
   transition: all 0.4s ease-in;
+}
+.correct-answer{
+  color: green;
 }
 
 /* #######################################################################################################
