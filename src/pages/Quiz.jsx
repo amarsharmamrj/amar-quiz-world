@@ -93,7 +93,7 @@ const Quiz = () => {
                         if (lastStart === 0) {
                             setQuestionsFinished(true)
                             clearInterval(lastInterval)
-                            navigate("/quiz-submitted")
+                            navigate(`/quiz-submitted/${bg}`)
                         }
                     }, 1000)
                 }
@@ -145,7 +145,7 @@ const Quiz = () => {
                 qIndex = prev + 1
                 console.log("clicked:", prev, prev + 1)
                 if (prev === 9) {
-                    navigate("/quiz-submitted")
+                    navigate(`/quiz-submitted/${bg}`)
                 }
                 return prev + 1
             }

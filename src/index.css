@@ -15,6 +15,14 @@ code {
   color: #9915e9 !important;
 }
 
+.bg-white{
+  background-color: white !important;
+}
+
+.color-white{
+  color: white !important;
+}
+
 .bg-one {
   background-color: #9915e9 !important;
 }
@@ -177,9 +185,9 @@ code {
 
 
 
-/* #############################################################################################
+/* ##########################################################################
                                 H O M E P A G E
-  ##############################################################################################*/
+  ###########################################################################*/
 
 .homepage {
   display: flex;
@@ -211,6 +219,65 @@ code {
   transform: translate(-20px);
   transition: all 0.4s ease-in;
 }
+
+/* ##########################################################################
+                                A N S W E R 
+  ###########################################################################*/
+  .back-to-home {
+    background-color: white !important;
+    letter-spacing: 1px !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+.answer {
+  border-radius: 0.5rem;
+  box-shadow: 1px 2px 4px rgb(240 229 247), 1px 2px 4px rgb(230 206 245);
+  padding: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.answer h2 {
+  margin: 0;
+}
+
+.no-icon{
+  color: black;
+}
+
+.answer span {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.answer p {
+  width: 50%;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.report{
+  margin-top: 0.5rem;
+}
+
+.report div {
+  display: flex;
+  justify-content: space-around;
+}
+
+.report div p {
+  margin: 0.5rem 0;
+}
+
+.report div span {
+  font-weight: 600;
+}
+
+
+
 
 /* #############################################################################################
                                 Q U I Z 
@@ -258,13 +325,20 @@ code {
   border: 2px solid white;
 }
 
-.quiz-question p:hover{
+.quiz-question p:hover {
   background-color: #9915e9;
   color: white;
   transition: all 0.4s ease-in;
 }
-.correct-answer{
+
+.correct-answer {
   color: green;
+  background-color: #d5f5d5;
+}
+
+.wrong-answer {
+  color: #d70808;
+  background-color: #f5d0d0
 }
 
 /* #######################################################################################################
