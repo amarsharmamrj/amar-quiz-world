@@ -15,11 +15,11 @@ code {
   color: #9915e9 !important;
 }
 
-.bg-white{
+.bg-white {
   background-color: white !important;
 }
 
-.color-white{
+.color-white {
   color: white !important;
 }
 
@@ -223,16 +223,18 @@ code {
 /* ##########################################################################
                                 A N S W E R 
   ###########################################################################*/
-  .back-to-home {
-    background-color: white !important;
-    letter-spacing: 1px !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
+.back-to-home {
+  background-color: white !important;
+  letter-spacing: 1px !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
 .answer {
   border-radius: 0.5rem;
-  box-shadow: 1px 2px 4px rgb(240 229 247), 1px 2px 4px rgb(230 206 245);
-  padding: 0.5rem;
+  /* box-shadow: 1px 2px 4px rgb(240 229 247), 1px 2px 4px rgb(230 206 245); */
+  /* padding: 0.5rem; */
+  padding-top: 1rem;
   margin: 1.5rem 0;
 }
 
@@ -240,7 +242,7 @@ code {
   margin: 0;
 }
 
-.no-icon{
+.no-icon {
   color: black;
 }
 
@@ -259,13 +261,21 @@ code {
   align-items: center;
 }
 
-.report{
+.report {
   margin-top: 0.5rem;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.auto-height{
+  height: auto;
 }
 
 .report div {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .report div p {
@@ -301,6 +311,7 @@ code {
 .quiz-topbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 0.5rem;
 }
 
@@ -350,4 +361,7 @@ code {
     width: 90%;
   }
 
+  .answer p {
+    width: 95%;
+  }
 }

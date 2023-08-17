@@ -1,8 +1,7 @@
-import { Button, Grid, Slide, Typography, Box, IconButton } from "@mui/material"
+import { Button, Grid, Slide, Typography, Box, IconButton, CircularProgress } from "@mui/material"
 import { useParams } from "react-router-dom"
 import Question from "../components/Question"
 import PropTypes from 'prop-types';
-import CircularProgress from '@mui/material/CircularProgress';
 import { useEffect, useState } from "react";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useSelector, useDispatch } from 'react-redux';
@@ -53,26 +52,30 @@ const Quiz = () => {
     const [quizData, setQuizData] = useState([])
     const [quizStarted, setQuizStarted] = useState(false)
     const [questionsFinished, setQuestionsFinished] = useState(false)
+    const [timeIntervalId, setTimeIntervalId] = useState(undefined)
+    const [totalTime, setTotalTime] = useState(0)
+    const [startTime, setStartTime] = useState(0)
 
     const dispatch = useDispatch()
     const questionStoreData = useSelector((state) => state.question)
 
 
     let qIndex = 0
+    var copyTimeInterval
     // let timeInterval
+
+    // let startTime = new Date()
 
     const changeQuestionIndex = (e = null, optionClicked = false) => {
         let start = 11
         let timeInterval = setInterval(() => {
+            // setTotalTime((prev) => prev + 1)
             start -= 1
-            console.log("else:", optionClicked)
-            console.log("start:", start)
             setCountDown(start)
             if (start === 0) {
                 setQuestionIndex((prev) => {
                     if (prev < 10) {
                         qIndex = prev + 1
-                        // if (qIndex === 9) setQuestionsFinished(true)
                         return prev + 1
                     }
                 })
@@ -81,7 +84,6 @@ const Quiz = () => {
                     changeQuestionIndex()
                 }
 
-                console.log("@@qIndex:", qIndex)
                 if (qIndex < 9) {
                     clearInterval(timeInterval)
                 } else {
@@ -93,18 +95,24 @@ const Quiz = () => {
                         if (lastStart === 0) {
                             setQuestionsFinished(true)
                             clearInterval(lastInterval)
-                            navigate(`/quiz-submitted/${bg}`)
+
+                            let endTime = new Date()
+                            let totalTimeInSeconds = (endTime.getTime() - startTime.getTime()) / 1000
+                            let timeToSet = Math.round(totalTimeInSeconds)
+                            setTotalTime(timeToSet)
+                            
+                            navigate(`/quiz-submitted/${bg}/${timeToSet}`)
                         }
                     }, 1000)
                 }
             }
         }, 1000)
 
-        console.log("timeInterval after:", timeInterval)
+        setTimeIntervalId(timeInterval)
     }
 
     const handleStart = () => {
-        console.log("####questionIndex:", value)
+        setStartTime(new Date())
 
         // set initial(first) index for question
         setQuestionIndex(1)
@@ -135,7 +143,10 @@ const Quiz = () => {
     const handleOption = (e) => {
         const value = e.target.getAttribute("value");
         const index = e.currentTarget.id - 1
-        console.log("@e:", index, value)
+
+        // setCountDown(0)
+        clearInterval(timeIntervalId)
+        changeQuestionIndex()
 
         // set selected option to redux store
         dispatch(selectOption(index, value))
@@ -143,14 +154,17 @@ const Quiz = () => {
         setQuestionIndex((prev) => {
             if (prev < 10) {
                 qIndex = prev + 1
-                console.log("clicked:", prev, prev + 1)
-                if (prev === 9) {
-                    navigate(`/quiz-submitted/${bg}`)
-                }
                 return prev + 1
             }
         })
 
+        if (questionIndex == 10) {
+            let endTime = new Date()
+            let totalTimeInSeconds = (endTime.getTime() - startTime.getTime()) / 1000
+            let timeToSet = Math.round(totalTimeInSeconds)
+            setTotalTime(timeToSet)
+            navigate(`/quiz-submitted/${bg}/${timeToSet}`)
+        }
     }
 
     useEffect(() => {
@@ -161,8 +175,6 @@ const Quiz = () => {
         fetch(uri)
             .then((res) => res.json())
             .then((data) => {
-                console.log("@success:", data)
-                console.log("@quizData:", quizData)
                 prepareQuizData(data.results)
             })
             .catch((error) => {
@@ -171,12 +183,9 @@ const Quiz = () => {
     }, [1])
 
     useEffect(() => {
-        console.log("redux questionStoreData:", questionStoreData)
-        console.log("!!questionIndex:", questionIndex)
         if (questionIndex) {
             let question = quizData[questionIndex - 1]
             if (question) setQuestionData(question)
-            console.log("!!question:", question)
         }
     }, [questionIndex])
 
@@ -195,20 +204,26 @@ const Quiz = () => {
                                         <CircularProgressWithLabel value={countdown * 10} />
                                     )
                                 ) : (
-                                    quizData.length > 0 && (
+                                    quizData.length > 0 ? (
                                         <div>
                                             <Button
                                                 variant="contained"
-                                                className="bg1"
+                                                sx={{ border: '2px solid white' }}
                                                 onClick={handleStart}
                                             >
                                                 Start
                                             </Button>
                                         </div>
+                                    ) : (
+                                        <Box sx={{ display: 'flex' }}>
+                                            <CircularProgress sx={{ color: 'white' }} />
+                                        </Box>
                                     )
                                 )
                             }
-                            <IconButton sx={{ color: 'white', visibility: 'hidden' }}></IconButton>
+                            <IconButton disabled={true} sx={{ color: 'transparent !important', cursor: 'pointer' }} >
+                                <HighlightOffIcon fontSize='large' />
+                            </IconButton>
                         </div>
                         <Slide direction="down" in={true}>
                             <img className="quiz-image" src={`/images/category/${title}.svg`} title={title} />

@@ -6,7 +6,7 @@ const Answer = (props) => {
     return (
         <>
             <div className="answer">
-                <h2>{question}</h2>
+                <h2><b>{id+1}: </b>{question}</h2>
                 {
                     options && (
                         options.length > 0 && (
