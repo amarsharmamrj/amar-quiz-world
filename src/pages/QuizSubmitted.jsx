@@ -48,7 +48,7 @@ const QuizSubmitted = () => {
                                             </p>
                                             <p className="attempted">
                                                 Accuracy:
-                                                <span>{(correctCount / attemptedCount) * 100} %</span>
+                                                <span>{((correctCount / attemptedCount) * 100).toFixed(2)} %</span>
                                             </p>
                                         </div>
                                         <div>

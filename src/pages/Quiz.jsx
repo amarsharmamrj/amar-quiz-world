@@ -141,6 +141,7 @@ const Quiz = () => {
     }
 
     const handleOption = (e) => {
+        document.getElementById(e.currentTarget.id).blur()
         const value = e.target.getAttribute("value");
         const index = e.currentTarget.id - 1
 

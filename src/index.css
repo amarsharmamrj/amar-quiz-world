@@ -336,12 +336,6 @@ code {
   border: 2px solid white;
 }
 
-.quiz-question p:hover {
-  background-color: #9915e9;
-  color: white;
-  transition: all 0.4s ease-in;
-}
-
 .correct-answer {
   color: green;
   background-color: #d5f5d5;
