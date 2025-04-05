@@ -1,6 +1,6 @@
 const Home = () => {
     return (
-        <p>This is home page.</p>
+        <p>This is home page.</p> 
     )
 }
 
